@@ -15,10 +15,10 @@ set tasktime=%hour%:%minute%
 mkdir C:\ProgramData\sysmon
 pushd "C:\ProgramData\sysmon\"
 echo [+] Downloading Sysmon...
-@powershell (new-object System.Net.WebClient).DownloadFile('https://live.sysinternals.com/Sysmon64.exe','C:\ProgramData\sysmon\sysmon64.exe')"
+@powershell (new-object System.Net.WebClient).DownloadFile('https://live.sysinternals.com/Sysmon64.exe','C:\ProgramData\sysmon\mon64.exe')"
 echo [+] Downloading Sysmon config...
-@powershell (new-object System.Net.WebClient).DownloadFile('https://raw.githubusercontent.com/threathunting/sysmon-config/master/sysmonconfig-export.xml','C:\ProgramData\sysmon\sysmonconfig-export.xml')"
-@powershell (new-object System.Net.WebClient).DownloadFile('https://raw.githubusercontent.com/threathunting/sysmon-config/master/Auto_update.bat','C:\ProgramData\sysmon\Auto_Update.bat')"
+@powershell (new-object System.Net.WebClient).DownloadFile('https://raw.githubusercontent.com/gatesr/sysmon-config/master/sysmonconfig-export.xml','C:\ProgramData\sysmon\sysmonconfig-export.xml')"
+@powershell (new-object System.Net.WebClient).DownloadFile('https://raw.githubusercontent.com/gatesr/sysmon-config/master/Auto_update.bat','C:\ProgramData\sysmon\Auto_Update.bat')"
 sysmon64.exe -accepteula -i sysmonconfig-export.xml
 echo [+] Sysmon Successfully Installed!
 attrib +s +h +r c:\ProgramData\sysmon
